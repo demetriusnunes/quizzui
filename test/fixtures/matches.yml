@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  starts_on: 
+  created_by: MyString
+
+two:
+  title: MyString
+  starts_on: 
+  created_by: MyString
