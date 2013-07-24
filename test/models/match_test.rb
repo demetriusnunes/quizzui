@@ -60,6 +60,22 @@ class MatchTest < ActiveSupport::TestCase
     assert_includes(m.eliminated, p3)
     assert_equal(0, m.leaderboard[p3])
     assert_equal(true, m.current_round.complete?)
+
+    m.start_round!
+
+    assert_equal(10, m.leaderboard[p1])
+    m.try_answer(p1, 2)
+    assert_includes(m.alive, p1)
+    assert_equal(30, m.leaderboard[p1])
+    assert_equal(false, m.current_round.complete?)
+
+    m.try_answer(p2, 1)
+    assert_includes(m.eliminated, p2)
+    assert_equal(10, m.leaderboard[p2])
+    assert_equal(true, m.current_round.complete?)
+
+    assert_equal(true, m.complete?)
+    assert_equal(p1, m.winner)
   end
 
 end
